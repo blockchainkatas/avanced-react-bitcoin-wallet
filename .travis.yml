@@ -25,6 +25,6 @@ deploy:
   api_key:
     secure: IgXVW/5KfYWKJR/Y2i+MZU76t7rkH7hVt3pWZxWBqqxPCBQ7XugU1xtbQU/zAf2xGjLYvkhmEuImYEL7cVKUSsvWCUOirnnpk+G6dlSMD8RZ4I07iBe2cTvrEjlpDdrHgDg3h82TII8HLqiYBnKvTSFXxMHHSHbiKKRvUSiGTSHKxmuVqiW0C36NzesLjGsQJznPIA4PcpxlXBVLgzbPMe1wwx6H+nnIKkug1xjGqZIEx5Kq9zJWOM8x1UPUx6q+B4kDVey1e2oo7LzLXvzox3Hz1LvrH1g2RXXzLQ0hlmgsyCrBIg0a4mbtIG8NRnBcUtFKzcNwhj8fR6Sl6dv1FJaC+0kRotu6l/m6o8bjIKuaq+G22UTzkTgOdRwfxtdS1J+ngYccyoQdTGA4y3CsfzW4JfJ1D4nRGloy9kGibWbE8cwy3DAktV7b0xSh5ImY/62o2fn0XfZkzpRMSDkk0mfdHUhUTT8PULiRQ+FPLQC43Cg/cuef3ha7pyrHbqB7YqqL5mcX52ZpWJVzZYIEkBbNsZUIvBgiQcPzzpE07QpP5rz4XAgPc1wBMybtLpNwEtShTspZY7BgdLdj6kQtLo5tVFnU7k2dzOUKzyj0gPdh8ufblxyfShG1yWJ+WorB2ylae0GrTB9kj8RYUcdaZWGFoqJXXISp207WMvLHsv0=
   app: avanced-react-bitcoin-wallet
-  run: "npm run start:prod"
+  run: "npm run start:production"
   on:
     repo: blockchainkatas/avanced-react-bitcoin-wallet
