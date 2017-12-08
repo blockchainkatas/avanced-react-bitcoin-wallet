@@ -16,10 +16,54 @@
  */
 
 import {
+  CHECK_TOKEN,
+  CHECK_TOKEN_SUCCESS,
+  CHECK_TOKEN_ERROR,
   LOAD_REPOS,
   LOAD_REPOS_SUCCESS,
   LOAD_REPOS_ERROR,
 } from './constants';
+
+/**
+ * Check if BlockCypher token if valid, this action starts the request saga
+ *
+ * @return {object} An action object with a type of CHECK_TOKEN
+ */
+export function checkToken() {
+  return {
+    type: CHECK_TOKEN,
+  };
+}
+
+/**
+ * Dispatched when the BlockCypher token has been validated
+ *
+ * @param  {array} wallets The wallet list
+ * @param  {string} token The current token
+ *
+ * @return {object}      An action object with a type of CHECK_TOKEN_SUCCESS
+ */
+export function tokenValidated(wallets, token) {
+  return {
+    type: CHECK_TOKEN_SUCCESS,
+    wallets,
+    token,
+  };
+}
+
+/**
+ * Dispatched when BlockCypher token validations fails
+ *
+ * @param  {object} error The error
+ *
+ * @return {object}       An action object with a type of CHECK_TOKEN_ERROR passing the error
+ */
+export function checkTokenError(error) {
+  return {
+    type: CHECK_TOKEN_ERROR,
+    error,
+  };
+}
 
 /**
  * Load the repositories, this action starts the request saga

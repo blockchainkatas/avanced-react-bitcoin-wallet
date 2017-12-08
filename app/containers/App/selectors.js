@@ -33,6 +33,16 @@ const makeSelectLocation = () => createSelector(
   (routeState) => routeState.get('location').toJS()
 );
 
+const makeSelectCurrentToken = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.get('currentToken')
+);
+
+const makeSelectWallets = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.getIn(['userData', 'wallets'])
+);
+
 export {
   selectGlobal,
   makeSelectCurrentUser,
@@ -40,4 +50,6 @@ export {
   makeSelectError,
   makeSelectRepos,
   makeSelectLocation,
+  makeSelectCurrentToken,
+  makeSelectWallets,
 };

@@ -13,8 +13,11 @@
 import { fromJS } from 'immutable';
 
 import {
-  LOAD_REPOS_SUCCESS,
+  CHECK_TOKEN,
+  CHECK_TOKEN_SUCCESS,
+  CHECK_TOKEN_ERROR,
   LOAD_REPOS,
+  LOAD_REPOS_SUCCESS,
   LOAD_REPOS_ERROR,
 } from './constants';
 
@@ -23,13 +26,29 @@ const initialState = fromJS({
   loading: false,
   error: false,
   currentUser: false,
+  currentToken: false,
   userData: {
     repositories: false,
+    wallets: false,
   },
 });
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
+    case CHECK_TOKEN:
+      return state
+        .set('loading', true)
+        .set('error', false)
+        .setIn(['userData', 'wallets'], false);
+    case CHECK_TOKEN_SUCCESS:
+      return state
+        .setIn(['userData', 'wallets'], action.wallets.wallet_names.map((name) => ({ id: name, name, token: action.token })))
+        .set('loading', false)
+        .set('currentToken', action.token);
+    case CHECK_TOKEN_ERROR:
+      return state
+        .set('error', action.error)
+        .set('loading', false);
     case LOAD_REPOS:
       return state
         .set('loading', true)

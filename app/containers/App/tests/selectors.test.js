@@ -7,6 +7,8 @@ import {
   makeSelectError,
   makeSelectRepos,
   makeSelectLocation,
+  makeSelectCurrentToken,
+  makeSelectWallets,
 } from '../selectors';
 
 describe('selectGlobal', () => {
@@ -83,5 +85,33 @@ describe('makeSelectLocation', () => {
       route,
     });
     expect(locationStateSelector(mockedState)).toEqual(route.get('location').toJS());
+  });
+});
+
+describe('makeSelectCurrentToken', () => {
+  const currentTokenSelector = makeSelectCurrentToken();
+  it('should select the current token', () => {
+    const token = '14c71464e5d0323691q7c314b42eg04';
+    const mockedState = fromJS({
+      global: {
+        currentToken: token,
+      },
+    });
+    expect(currentTokenSelector(mockedState)).toEqual(token);
+  });
+});
+
+describe('makeSelectWallets', () => {
+  const walletsSelector = makeSelectWallets();
+  it('should select the wallets', () => {
+    const wallets = fromJS([]);
+    const mockedState = fromJS({
+      global: {
+        userData: {
+          wallets,
+        },
+      },
+    });
+    expect(walletsSelector(mockedState)).toEqual(wallets);
   });
 });
