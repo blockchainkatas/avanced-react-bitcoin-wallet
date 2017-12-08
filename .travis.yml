@@ -28,3 +28,4 @@ deploy:
   run: "npm run start:production"
   on:
     repo: blockchainkatas/avanced-react-bitcoin-wallet
+    node: 8
